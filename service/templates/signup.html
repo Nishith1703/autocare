@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Customer Signup</title>
+    <style>
+        *{margin:0;padding:0;box-sizing:border-box;font-family:Arial,sans-serif;}
+        body{
+            min-height:100vh;
+            background:linear-gradient(rgba(0,0,0,.65),rgba(0,0,0,.75)),
+            url("https://images.unsplash.com/photo-1487754180451-c456f719a1fc?auto=format&fit=crop&w=1600&q=80");
+            background-size:cover;
+            background-position:center;
+            display:flex;
+            align-items:center;
+            justify-content:center;
+            padding:30px;
+        }
+        .box{
+            width:430px;
+            background:rgba(255,255,255,.12);
+            backdrop-filter:blur(14px);
+            border:1px solid rgba(255,255,255,.25);
+            border-radius:18px;
+            padding:35px;
+            color:white;
+            box-shadow:0 20px 50px rgba(0,0,0,.5);
+        }
+        h1{text-align:center;margin-bottom:8px;color:#ffb703;}
+        p{text-align:center;color:#ddd;margin-bottom:22px;}
+        input, textarea{
+            width:100%;
+            padding:13px;
+            margin:8px 0;
+            border:none;
+            outline:none;
+            border-radius:10px;
+            background:rgba(255,255,255,.92);
+            font-size:15px;
+        }
+        button{
+            width:100%;
+            padding:14px;
+            margin-top:12px;
+            border:none;
+            border-radius:10px;
+            background:#ffb703;
+            color:#111;
+            font-size:16px;
+            font-weight:bold;
+            cursor:pointer;
+        }
+        button:hover{background:#ffd166;}
+        .link{text-align:center;margin-top:15px;}
+        .link a{color:#ffb703;text-decoration:none;font-weight:bold;}
+        .error{color:#ff6b6b;text-align:center;margin-top:10px;font-weight:bold;}
+    </style>
+</head>
+<body>
+
+<div class="box">
+    <h1>Create Account</h1>
+    <p>Register as AutoCare customer</p>
+
+    <form method="POST">
+        {% csrf_token %}
+
+        <input type="text" name="name" placeholder="Full Name" required>
+        <input type="text" name="phone" placeholder="Phone Number" required>
+        <input type="email" name="email" placeholder="Email">
+        <textarea name="address" placeholder="Address"></textarea>
+
+        <input type="text" name="username" placeholder="Create Username" required>
+        <input type="password" name="password" placeholder="Create Password" required>
+
+        <button type="submit">Signup</button>
+    </form>
+
+    {% if error %}
+        <div class="error">{{ error }}</div>
+    {% endif %}
+
+    <div class="link">
+        Already have account? <a href="{% url 'login' %}">Login</a>
+    </div>
+</div>
+
+</body>
+</html>

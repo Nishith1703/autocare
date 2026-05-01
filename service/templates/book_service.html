@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Book Service</title>
+</head>
+<body>
+
+<h1>Book Service</h1>
+
+<form method="POST">
+    {% csrf_token %}
+    {{ form.as_p }}
+
+    <button type="submit">Book Service</button>
+</form>
+
+<br>
+<a href="{% url 'customer_dashboard' %}">Back to Dashboard</a>
+
+</body>
+</html>

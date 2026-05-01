@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Add Car</title>
+</head>
+<body>
+
+<h1>Add Your Car</h1>
+
+<form method="POST">
+    {% csrf_token %}
+    {{ form.as_p }}
+
+    <button type="submit">Save Car</button>
+</form>
+
+<br>
+<a href="{% url 'customer_dashboard' %}">Back to Dashboard</a>
+
+</body>
+</html>

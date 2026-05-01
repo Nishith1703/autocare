@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Car Service System</title>
+
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial;
+            background: #f4f6f9;
+        }
+
+        .navbar {
+            background: #2c3e50;
+            padding: 15px;
+            text-align: center;
+        }
+
+        .navbar a {
+            text-decoration: none;
+        }
+
+        .navbar button {
+            margin: 5px;
+            padding: 10px 20px;
+            border: none;
+            background: #3498db;
+            color: white;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .navbar button:hover {
+            background: #2980b9;
+        }
+
+        .container {
+            padding: 30px;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="navbar">
+    <a href="{% url 'home' %}"><button>Home</button></a>
+    <a href="{% url 'dashboard' %}"><button>Dashboard</button></a>
+    <a href="{% url 'customers' %}"><button>Customers</button></a>
+    <a href="{% url 'login' %}"><button>Login</button></a>
+</div>
+
+<div class="container">
+    {% block content %}
+    {% endblock %}
+</div>
+
+</body>
+</html>

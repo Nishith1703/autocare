@@ -1,21 +1,159 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Book Service</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Service | AutoCare</title>
+
+    <style>
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+            font-family:Arial, sans-serif;
+        }
+
+        body{
+            min-height:100vh;
+            display:flex;
+            justify-content:center;
+            align-items:center;
+            background:
+            linear-gradient(rgba(0,0,0,0.75), rgba(0,0,0,0.75)),
+            url("https://images.unsplash.com/photo-1487754180451-c456f719a1fc?q=80&w=1600&auto=format&fit=crop");
+            background-size:cover;
+            background-position:center;
+            padding:20px;
+        }
+
+        .service-box{
+            width:460px;
+            background:rgba(18,18,18,0.94);
+            color:white;
+            padding:40px;
+            border-radius:22px;
+            box-shadow:0 20px 50px rgba(0,0,0,0.55);
+            backdrop-filter:blur(8px);
+            border:1px solid rgba(255,255,255,0.08);
+        }
+
+        .service-box h1{
+            text-align:center;
+            color:#ffb703;
+            font-size:34px;
+            margin-bottom:10px;
+        }
+
+        .subtitle{
+            text-align:center;
+            color:#ccc;
+            margin-bottom:30px;
+            font-size:15px;
+        }
+
+        form p{
+            margin-bottom:18px;
+        }
+
+        form label{
+            display:block;
+            margin-bottom:8px;
+            color:#e5e5e5;
+            font-size:15px;
+            font-weight:600;
+        }
+
+        form input,
+        form select,
+        form textarea{
+            width:100%;
+            padding:14px;
+            border-radius:12px;
+            border:1px solid #333;
+            outline:none;
+            background:#252525;
+            color:white;
+            font-size:15px;
+            transition:0.3s;
+        }
+
+        form textarea{
+            min-height:110px;
+            resize:none;
+        }
+
+        form input:focus,
+        form select:focus,
+        form textarea:focus{
+            border-color:#ffb703;
+            box-shadow:0 0 0 3px rgba(255,183,3,0.18);
+            background:#1b1b1b;
+        }
+
+        button{
+            width:100%;
+            padding:15px;
+            border:none;
+            border-radius:14px;
+            background:#ffb703;
+            color:#111;
+            font-size:17px;
+            font-weight:bold;
+            cursor:pointer;
+            margin-top:8px;
+            transition:0.3s;
+        }
+
+        button:hover{
+            background:#ffaa00;
+            transform:translateY(-2px);
+            box-shadow:0 8px 20px rgba(255,183,3,0.35);
+        }
+
+        .back-link{
+            display:block;
+            text-align:center;
+            margin-top:22px;
+            text-decoration:none;
+            color:#ffb703;
+            font-weight:600;
+            transition:0.3s;
+        }
+
+        .back-link:hover{
+            color:white;
+        }
+
+        @media(max-width:520px){
+            .service-box{
+                width:100%;
+                padding:30px 22px;
+            }
+
+            .service-box h1{
+                font-size:28px;
+            }
+        }
+    </style>
 </head>
+
 <body>
 
-<h1>Book Service</h1>
+<div class="service-box">
+    <h1>Book Service</h1>
+    <p class="subtitle">Schedule your car service with AutoCare</p>
 
-<form method="POST">
-    {% csrf_token %}
-    {{ form.as_p }}
+    <form method="POST">
+        {% csrf_token %}
+        {{ form.as_p }}
 
-    <button type="submit">Book Service</button>
-</form>
+        <button type="submit">Book Service</button>
+    </form>
 
-<br>
-<a href="{% url 'customer_dashboard' %}">Back to Dashboard</a>
+    <a href="{% url 'customer_dashboard' %}" class="back-link">
+        ← Back to Dashboard
+    </a>
+</div>
 
 </body>
 </html>
